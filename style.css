@@ -1,0 +1,93 @@
+/* tryfirstbell.app: the Petrol tokens from DESIGN.md, system fonts only. */
+:root {
+  --bg: #F3F5F5;
+  --surface: #FFFFFF;
+  --ink: #15211F;
+  --ink-muted: #5C6966;
+  --line: #E1E7E6;
+  --accent: #1D5C6B;
+  --accent-tint: #E3EEF0;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0D1517;
+    --surface: #162124;
+    --ink: #EAF2F1;
+    --ink-muted: #97A8A6;
+    --line: #22302F;
+    --accent: #7FC3CF;
+    --accent-tint: #17313A;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+header, main, footer { max-width: 680px; margin: 0 auto; padding: 0 20px; }
+header { padding-top: 24px; }
+main { padding-bottom: 32px; }
+
+h1, h2, h3, .wordmark {
+  font-family: ui-serif, "New York", Georgia, "Times New Roman", serif;
+  font-weight: 600;
+}
+.wordmark { color: var(--ink); text-decoration: none; font-size: 20px; }
+h1 { font-size: 30px; line-height: 36px; letter-spacing: -0.3px; margin: 32px 0 12px; }
+h2 { font-size: 22px; line-height: 28px; margin: 40px 0 8px; }
+h3 { font-size: 18px; line-height: 24px; margin: 24px 0 8px; }
+p, ul { margin: 0 0 16px; }
+ul { padding-left: 22px; }
+li { margin-bottom: 8px; }
+strong { font-weight: 600; }
+code { font: 0.9em ui-monospace, Menlo, monospace; }
+a { color: var(--accent); text-underline-offset: 2px; overflow-wrap: anywhere; }
+
+.meta { color: var(--ink-muted); font-size: 15px; }
+.note {
+  background: var(--accent-tint);
+  border-radius: 14px;
+  padding: 12px 16px;
+  font-size: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 0 0 16px;
+  font-size: 15px;
+  line-height: 1.45;
+}
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; }
+th { color: var(--ink-muted); font-weight: 600; border-bottom: 1px solid var(--line); }
+tbody tr + tr td { border-top: 1px solid var(--line); }
+
+/* On a phone, each row becomes a block of labelled lines. */
+@media (max-width: 560px) {
+  table, tbody, tr, td { display: block; }
+  thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  tbody tr { padding: 10px 14px; }
+  tbody tr + tr { border-top: 1px solid var(--line); }
+  tbody tr + tr td { border-top: 0; }
+  td { padding: 2px 0; }
+  td::before {
+    content: attr(data-label);
+    display: block;
+    color: var(--ink-muted);
+    font-size: 13px;
+  }
+  td:first-child { font-weight: 600; }
+  td:first-child::before { display: none; }
+}
+
+footer { border-top: 1px solid var(--line); padding-top: 16px; padding-bottom: 40px; }
+footer nav { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 15px; }
